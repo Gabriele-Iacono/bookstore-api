@@ -5,10 +5,7 @@ import com.example.Bookauthorgenre.services.AutoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,15 +17,20 @@ public class AutoreController {
 
 
     //api
-    @GetMapping("/autore")
+    @GetMapping("/autore") // funz
     public ResponseEntity<List<Autore>> getAutori(){
         List<Autore> autori = autoreService.getAutori();
         return new ResponseEntity<>(autori, HttpStatus.OK);
     }
-    @PostMapping("/autore")
+    @PostMapping("/autore")// funz
     public ResponseEntity <Autore> createAutore(@RequestBody Autore request ){
         Autore autore = autoreService.createAutore(request);
         return new ResponseEntity<>(autore, HttpStatus.OK);
+    }
+    @DeleteMapping("/autore/{id}") // funz
+    public ResponseEntity <Void> deleteAutore(@PathVariable("id") Long id ){
+        autoreService.deleteAutore(id);
+        return ResponseEntity.noContent().build();
     }
 
 

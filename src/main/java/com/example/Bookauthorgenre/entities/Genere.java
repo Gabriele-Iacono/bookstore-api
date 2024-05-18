@@ -10,6 +10,8 @@ import java.util.List;
 @Table
 @Data
 public class Genere {
+
+    ///avere la possibilità di ottenere tutti i generi
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

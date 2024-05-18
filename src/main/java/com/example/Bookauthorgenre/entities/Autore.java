@@ -1,5 +1,6 @@
     package com.example.Bookauthorgenre.entities;
 
+    import com.fasterxml.jackson.annotation.JsonManagedReference;
     import jakarta.persistence.*;
     import lombok.Data;
     import lombok.Setter;
@@ -20,6 +21,7 @@
         private String artname;
         private Date birthdate;
 
-        @OneToMany(mappedBy = "autore")
+        @OneToMany(mappedBy = "autore", cascade = CascadeType.REMOVE)
+        @JsonManagedReference
         private List<Libro> libri;
     }

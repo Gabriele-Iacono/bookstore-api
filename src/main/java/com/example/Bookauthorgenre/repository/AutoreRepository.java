@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AutoreRepository  extends JpaRepository <Autore, Long> {
-    Autore findByArtname(String artname);
+    Autore findByartname(String artname);
 
 
 }

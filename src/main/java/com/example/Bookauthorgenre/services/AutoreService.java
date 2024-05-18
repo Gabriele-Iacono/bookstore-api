@@ -18,15 +18,12 @@ public class AutoreService {
 
     public List<Autore> getAutori() {
         List<Autore> autori = autoreRepository.findAll();
-
         return autori;
     }
 
     public Autore createAutore(@RequestBody Autore request) {
-        Autore foundAuthor = autoreRepository.findByArtname(request.getArtname());
-
+        Autore foundAuthor = autoreRepository.findByartname(request.getArtname());
         if (foundAuthor != null) {
-
             return foundAuthor;
         }
 
@@ -38,6 +35,12 @@ public class AutoreService {
         autoreRepository.save(autore);
         return autore;
     }
+
+    public void deleteAutore(Long id) {
+        autoreRepository.deleteById(id);
+
+    }
+
 
 
 }
